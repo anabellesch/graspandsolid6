@@ -6,7 +6,7 @@
 
 using System;
 using System.Collections.Generic;
-
+using System.Threading;
 namespace Full_GRASP_And_SOLID
 {
     public class Recipe : IRecipeContent // Modificado por DIP
@@ -61,6 +61,24 @@ namespace Full_GRASP_And_SOLID
             }
 
             return result;
+        }
+        public int GetCookTime(){
+
+            int TotalTime= 0;
+            foreach (BaseStep Step in steps){
+
+                TotalTime+=Step.Time;
+
+            }
+            return TotalTime;
+        }
+
+        public bool Cooked(){ 
+
+            int cooktime=GetCookTime();
+            Thread.Sleep(cooktime);
+
+            
         }
     }
 }

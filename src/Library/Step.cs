@@ -15,6 +15,7 @@ namespace Full_GRASP_And_SOLID
             this.Quantity = quantity;
             this.Input = input;
             this.Equipment = equipment;
+            
         }
 
         public Product Input { get; set; }
@@ -22,6 +23,7 @@ namespace Full_GRASP_And_SOLID
         public double Quantity { get; set; }
 
         public Equipment Equipment { get; set; }
+       
 
         // Agregado por Expert
         public override double GetStepCost()

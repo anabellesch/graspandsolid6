@@ -7,6 +7,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 
 namespace Full_GRASP_And_SOLID
 {
@@ -15,6 +16,8 @@ namespace Full_GRASP_And_SOLID
         private static List<Product> productCatalog = new List<Product>();
 
         private static List<Equipment> equipmentCatalog = new List<Equipment>();
+        private CountdownTimer timer = new CountdownTimer();
+        private bool cooked=false;
 
         public static void Main(string[] args)
         {
@@ -74,5 +77,26 @@ namespace Full_GRASP_And_SOLID
             var query = from Equipment equipment in equipmentCatalog where equipment.Description == description select equipment;
             return query.FirstOrDefault();
         }
+        
+
+
+        }
+        public void Cook()
+    {
+        int cookTime = GetCookTime();
+        CountdownTimer.Register(cookTime, this);
     }
+
+    public void TimeOut()
+    {
+        cooked = true;
+    }
+
+
+        
+
 }
+
+        
+    
+
